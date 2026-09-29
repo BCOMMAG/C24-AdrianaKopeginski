@@ -165,7 +165,7 @@ export function About() {
             </div>
 
             {/* Citação de Proposta de Valor */}
-            <div className="about-text-anim p-4 sm:p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/30 border-l-4 border-l-[#FFD700] shadow-2xs">
+            <div className="about-text-anim p-4 sm:p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/30 border-l-4 border-l-[#D5B1A0] shadow-2xs">
               <p className="font-heading italic text-sm sm:text-base text-[var(--text-main)] leading-relaxed">
                 &ldquo;{OFFICE_INFO.slogan}&rdquo;
               </p>
@@ -199,7 +199,7 @@ export function About() {
               <button
                 type="button"
                 onClick={handleToggleExpand}
-                className="btn-pill bg-[var(--bg-card)] text-[var(--text-main)] border-2 border-[var(--border-subtle)] hover:border-[#FFD700] dark:bg-[#532729] dark:text-[#F2E7DF] dark:border-[#FFD700]/30 dark:hover:bg-[#683335] gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
+                className="btn-pill bg-[var(--bg-card)] text-[var(--text-main)] border-2 border-[var(--border-subtle)] hover:border-[#D5B1A0] dark:bg-[#532729] dark:text-[#F2E7DF] dark:border-[#D5B1A0]/30 dark:hover:bg-[#683335] gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
                 aria-expanded={isExpanded}
               >
                 <span>{isExpanded ? "Ocultar detalhes" : "Conhecer Trajetória & Experiência"}</span>
@@ -214,7 +214,7 @@ export function About() {
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill bg-[#FFD700] hover:bg-[#E6C200] text-[#292323] border-2 border-[#FFD700] gap-2 py-3 px-6 text-xs sm:text-sm font-bold shadow-md hover-lift transition-all flex items-center cursor-pointer"
+                className="btn-pill bg-[#D5B1A0] hover:bg-[#C49A87] text-[#292323] border-2 border-[#D5B1A0] gap-2 py-3 px-6 text-xs sm:text-sm font-bold shadow-md hover-lift transition-all flex items-center cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 text-[#292323]" />
                 <span>Falar com um advogado</span>
@@ -265,7 +265,7 @@ export function About() {
           {/* Coluna da Foto Oficial */}
           <div className="lg:col-span-5 order-1 lg:order-2 w-full flex justify-center lg:justify-end">
             <div ref={photoCardRef} className="w-full max-w-[360px] sm:max-w-[400px] will-change-transform">
-              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#FFD700]/50 shadow-[0_12px_35px_rgba(41,35,35,0.25)] hover-lift group bg-[#431617]">
+              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#D5B1A0]/50 shadow-[0_12px_35px_rgba(41,35,35,0.25)] hover-lift group bg-[#431617]">
                 {/* Feixe de luz suave */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 pointer-events-none" />
                 <Image
@@ -280,7 +280,7 @@ export function About() {
 
                 {/* Badge Inferior com Nome e Titularidade */}
                 <div className="absolute bottom-5 left-5 right-5 text-white z-10 pointer-events-none">
-                  <span className="text-[0.6875rem] uppercase tracking-widest text-[#FFD700] font-heading font-bold block mb-1">
+                  <span className="text-[0.6875rem] uppercase tracking-widest text-[#D5B1A0] font-heading font-bold block mb-1">
                     Advogada Titular
                   </span>
                   <p className="font-heading text-xl sm:text-2xl font-bold leading-tight text-[#F2E7DF] drop-shadow-sm">

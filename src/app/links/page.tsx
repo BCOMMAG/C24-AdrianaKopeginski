@@ -101,13 +101,13 @@ export default function LinksPage() {
       <div className="hidden lg:grid lg:grid-cols-2 h-full w-full overflow-hidden">
         
         {/* LADO ESQUERDO: Fundo Bordô Profundo com Logo DOBRADA e Identidade Visual */}
-        <div className="relative bg-[#431617] text-[#F2E7DF] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#FFD700]/25">
+        <div className="relative bg-[#431617] text-[#F2E7DF] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#D5B1A0]/25">
           <div className="absolute inset-0 pointer-events-none opacity-10">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="grid-links-desktop-c24" width="50" height="50" patternUnits="userSpaceOnUse">
-                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#FFD700" strokeWidth="0.75" />
-                  <circle cx="0" cy="0" r="1.5" fill="#FFD700" />
+                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#D5B1A0" strokeWidth="0.75" />
+                  <circle cx="0" cy="0" r="1.5" fill="#D5B1A0" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid-links-desktop-c24)" />
@@ -115,11 +115,11 @@ export default function LinksPage() {
           </div>
 
           <div className="relative z-10 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FFD700]/40 bg-[#292323]/90 backdrop-blur-md text-xs font-heading tracking-wider text-[#FFD700]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#FFD700]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D5B1A0]/40 bg-[#292323]/90 backdrop-blur-md text-xs font-heading tracking-wider text-[#D5B1A0]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D5B1A0]" />
               <span>Advocacia Especialista em Direito Previdenciário</span>
             </div>
-            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#FFD700]">
+            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#D5B1A0]">
               Curitiba/PR • Atendimento Nacional
             </span>
           </div>
@@ -141,7 +141,7 @@ export default function LinksPage() {
               />
             </Link>
 
-            <div className="h-0.5 w-16 bg-[#FFD700]/60 mb-4" />
+            <div className="h-0.5 w-16 bg-[#D5B1A0]/60 mb-4" />
 
             <h1 className="font-heading text-lg xl:text-xl font-semibold max-w-md leading-snug text-[#F2E7DF]">
               {OFFICE_INFO.tagline}
@@ -154,7 +154,7 @@ export default function LinksPage() {
 
           <div className="relative z-10 flex items-center justify-between text-xs text-[#F2E7DF]/70 font-body pt-3 border-t border-white/10">
             <p>{OFFICE_INFO.addressShort}</p>
-            <p className="text-[0.6875rem] text-[#FFD700]/90">Provimento 205/2021 CFOAB</p>
+            <p className="text-[0.6875rem] text-[#D5B1A0]/90">Provimento 205/2021 CFOAB</p>
           </div>
         </div>
 
@@ -197,7 +197,7 @@ export default function LinksPage() {
                 const buttonClasses = `w-full p-2.5 xl:p-3 rounded-xl flex items-center justify-between group transition-all duration-300 border ${
                   item.highlight
                     ? "bg-[#25D366] hover:bg-[#20ba59] text-white border-transparent shadow-sm hover:shadow-md"
-                    : "bg-white text-[#292323] border-[#532729]/20 hover:border-[#FFD700] shadow-2xs hover:shadow-xs"
+                    : "bg-white text-[#292323] border-[#532729]/20 hover:border-[#D5B1A0] shadow-2xs hover:shadow-xs"
                 }`;
 
                 const content = (
@@ -280,25 +280,25 @@ export default function LinksPage() {
         {/* Linhas e Formas Geométricas Minimalistas em Dourado Champagne no Plano de Fundo */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
           {/* Brilho radial dourado sutil */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(255,215,0,0.12)_0%,rgba(242,231,223,0)_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(213,177,160,0.14)_0%,rgba(242,231,223,0)_70%)]" />
 
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <defs>
               {/* Malha ultra fina com nós dourados */}
               <pattern id="golden-mobile-grid-c24" width="36" height="36" patternUnits="userSpaceOnUse">
                 <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#532729" strokeWidth="0.4" strokeOpacity="0.08" />
-                <circle cx="0" cy="0" r="0.9" fill="#FFD700" fillOpacity="0.25" />
+                <circle cx="0" cy="0" r="0.9" fill="#D5B1A0" fillOpacity="0.25" />
               </pattern>
               {/* Gradientes lineares para traços dourados */}
               <linearGradient id="goldGradC24-1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFD700" stopOpacity="0.05" />
-                <stop offset="50%" stopColor="#FFD700" stopOpacity="0.38" />
-                <stop offset="100%" stopColor="#FFD700" stopOpacity="0.05" />
+                <stop offset="0%" stopColor="#D5B1A0" stopOpacity="0.05" />
+                <stop offset="50%" stopColor="#D5B1A0" stopOpacity="0.38" />
+                <stop offset="100%" stopColor="#D5B1A0" stopOpacity="0.05" />
               </linearGradient>
               <linearGradient id="goldGradC24-2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#FFD700" stopOpacity="0.05" />
-                <stop offset="50%" stopColor="#FFD700" stopOpacity="0.32" />
-                <stop offset="100%" stopColor="#FFD700" stopOpacity="0.05" />
+                <stop offset="0%" stopColor="#D5B1A0" stopOpacity="0.05" />
+                <stop offset="50%" stopColor="#D5B1A0" stopOpacity="0.32" />
+                <stop offset="100%" stopColor="#D5B1A0" stopOpacity="0.05" />
               </linearGradient>
             </defs>
 
@@ -312,27 +312,27 @@ export default function LinksPage() {
             <line x1="110%" y1="88%" x2="-10%" y2="56%" stroke="url(#goldGradC24-2)" strokeWidth="0.6" strokeDasharray="3 3" />
 
             {/* Linhas verticais de enquadramento arquitetônico */}
-            <line x1="6%" y1="0" x2="6%" y2="100%" stroke="#FFD700" strokeWidth="0.5" strokeOpacity="0.22" />
-            <line x1="94%" y1="0" x2="94%" y2="100%" stroke="#FFD700" strokeWidth="0.5" strokeOpacity="0.22" />
+            <line x1="6%" y1="0" x2="6%" y2="100%" stroke="#D5B1A0" strokeWidth="0.5" strokeOpacity="0.22" />
+            <line x1="94%" y1="0" x2="94%" y2="100%" stroke="#D5B1A0" strokeWidth="0.5" strokeOpacity="0.22" />
             <line x1="0" y1="22%" x2="100%" y2="22%" stroke="#532729" strokeWidth="0.5" strokeOpacity="0.12" strokeDasharray="5 5" />
             <line x1="0" y1="78%" x2="100%" y2="78%" stroke="#532729" strokeWidth="0.5" strokeOpacity="0.12" strokeDasharray="5 5" />
 
             {/* Círculos e Arcos Geométricos Minimalistas */}
-            <circle cx="88%" cy="18%" r="85" fill="none" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.22" />
-            <circle cx="88%" cy="18%" r="62" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeOpacity="0.15" strokeDasharray="3 3" />
+            <circle cx="88%" cy="18%" r="85" fill="none" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.22" />
+            <circle cx="88%" cy="18%" r="62" fill="none" stroke="#D5B1A0" strokeWidth="0.5" strokeOpacity="0.15" strokeDasharray="3 3" />
 
-            <circle cx="12%" cy="80%" r="95" fill="none" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.20" />
-            <circle cx="12%" cy="80%" r="70" fill="none" stroke="#FFD700" strokeWidth="0.5" strokeOpacity="0.15" strokeDasharray="4 4" />
+            <circle cx="12%" cy="80%" r="95" fill="none" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.20" />
+            <circle cx="12%" cy="80%" r="70" fill="none" stroke="#D5B1A0" strokeWidth="0.5" strokeOpacity="0.15" strokeDasharray="4 4" />
 
             {/* Losangos / Diamantes Geométricos Minimalistas */}
-            <polygon points="40,85 54,99 40,113 26,99" fill="none" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.28" />
-            <polygon points="340,650 354,664 340,678 326,664" fill="none" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.28" />
+            <polygon points="40,85 54,99 40,113 26,99" fill="none" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.28" />
+            <polygon points="340,650 354,664 340,678 326,664" fill="none" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.28" />
 
             {/* Marcadores de precisão em cruz (+) nas interseções */}
-            <path d="M 6% 22% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.45" />
-            <path d="M 94% 22% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.45" />
-            <path d="M 6% 78% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.45" />
-            <path d="M 94% 78% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#FFD700" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 6% 22% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 94% 22% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 6% 78% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.45" />
+            <path d="M 94% 78% m -5 0 l 10 0 m -5 -5 l 0 10" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.45" />
           </svg>
         </div>
 
@@ -362,7 +362,7 @@ export default function LinksPage() {
               const buttonClasses = `group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl border transition-all duration-200 active:scale-[0.98] ${
                 item.highlight
                   ? "bg-[#25D366] text-white border-transparent shadow-[0_3px_12px_rgba(37,211,102,0.28)]"
-                  : "bg-white/95 backdrop-blur-xs hover:bg-white border-[#532729]/20 text-[#292323] shadow-2xs hover:border-[#FFD700]"
+                  : "bg-white/95 backdrop-blur-xs hover:bg-white border-[#532729]/20 text-[#292323] shadow-2xs hover:border-[#D5B1A0]"
               }`;
 
               const content = (
@@ -412,7 +412,7 @@ export default function LinksPage() {
               href={OFFICE_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl bg-white/95 border border-[#532729]/20 text-[#292323] hover:border-[#FFD700] active:scale-[0.98] transition-all shadow-2xs w-full"
+              className="group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl bg-white/95 border border-[#532729]/20 text-[#292323] hover:border-[#D5B1A0] active:scale-[0.98] transition-all shadow-2xs w-full"
             >
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#E9DDD4] border border-[#532729]/15 text-[#532729]">

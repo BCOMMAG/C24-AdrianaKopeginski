@@ -267,7 +267,7 @@ export function ContactSection() {
                   href={OFFICE_INFO.mapsDirectionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-pill bg-[#FFD700] hover:bg-[#E6C200] text-[#292323] text-xs font-bold py-2.5 px-4 shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                  className="btn-pill bg-[#D5B1A0] hover:bg-[#C49A87] text-[#292323] text-xs font-bold py-2.5 px-4 shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <Navigation className="w-3.5 h-3.5 text-[#292323]" />
                   <span>Traçar Rota no Google Maps</span>

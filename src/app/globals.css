@@ -10,16 +10,16 @@
   --text-main: #292323;
   --text-muted: #532729;
   --text-secondary: #3E3233;
-  --brand-gold: #FFD700;
-  --brand-gold-hover: #E6C200;
-  --brand-gold-light: #FFF9DB;
+  --brand-gold: #D5B1A0;
+  --brand-gold-hover: #C49A87;
+  --brand-gold-light: #F7EFEA;
   --brand-bordo: #431617;
   --brand-vinho: #532729;
   --brand-marfim: #F2E7DF;
   --brand-carvao: #292323;
-  --accent: #FFD700;
-  --accent-hover: #E6C200;
-  --accent-light: #FFF9DB;
+  --accent: #D5B1A0;
+  --accent-hover: #C49A87;
+  --accent-light: #F7EFEA;
   --accent-dark: #292323;
   --border-subtle: rgba(83, 39, 41, 0.18);
 }
@@ -31,16 +31,16 @@ html.dark {
   --text-main: #F2E7DF;
   --text-muted: #D8C7BC;
   --text-secondary: #E8DCD3;
-  --brand-gold: #FFD700;
-  --brand-gold-hover: #FFE234;
-  --brand-gold-light: #2D2508;
+  --brand-gold: #D5B1A0;
+  --brand-gold-hover: #E2C4B5;
+  --brand-gold-light: #4A3328;
   --brand-bordo: #431617;
   --brand-vinho: #532729;
   --brand-marfim: #F2E7DF;
   --brand-carvao: #292323;
-  --accent: #FFD700;
-  --accent-hover: #FFE234;
-  --accent-light: #2D2508;
+  --accent: #D5B1A0;
+  --accent-hover: #E2C4B5;
+  --accent-light: #4A3328;
   --accent-dark: #431617;
   --border-subtle: rgba(242, 231, 223, 0.16);
 }

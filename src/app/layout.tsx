@@ -132,7 +132,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-body selection:bg-[#FFD700] selection:text-[#292323]">
+      <body className="min-h-screen flex flex-col font-body selection:bg-[#D5B1A0] selection:text-[#292323]">
         <ThemeProvider>
           <SmoothScroll>
             {children}

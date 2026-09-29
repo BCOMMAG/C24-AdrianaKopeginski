@@ -115,7 +115,7 @@ export function ReviewsSection() {
           {track1.map((rev, idx) => (
             <div
               key={`track1-${rev.author}-${idx}`}
-              className="w-[300px] sm:w-[370px] min-h-[190px] p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-xs flex flex-col justify-between flex-shrink-0 hover:border-[#FFD700] dark:hover:border-[#FFD700] hover:shadow-md transition-all duration-300 group"
+              className="w-[300px] sm:w-[370px] min-h-[190px] p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-xs flex flex-col justify-between flex-shrink-0 hover:border-[#D5B1A0] dark:hover:border-[#D5B1A0] hover:shadow-md transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -137,7 +137,7 @@ export function ReviewsSection() {
 
               <div className="pt-3 border-t border-[var(--border-subtle)]/25 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FFD700]/25 to-[#E6C200]/35 text-[#292323] dark:text-[#FFD700] font-heading font-bold text-xs flex items-center justify-center border border-[#FFD700]/30 flex-shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#D5B1A0]/25 to-[#C49A87]/35 text-[#292323] dark:text-[#D5B1A0] font-heading font-bold text-xs flex items-center justify-center border border-[#D5B1A0]/30 flex-shrink-0">
                     {getInitials(rev.author)}
                   </div>
                   <div>
@@ -149,7 +149,7 @@ export function ReviewsSection() {
                     </span>
                   </div>
                 </div>
-                <MessageSquareQuote className="w-4 h-4 text-[#FFD700]/80 flex-shrink-0" />
+                <MessageSquareQuote className="w-4 h-4 text-[#D5B1A0]/80 flex-shrink-0" />
               </div>
             </div>
           ))}
@@ -162,7 +162,7 @@ export function ReviewsSection() {
           {track2.map((rev, idx) => (
             <div
               key={`track2-${rev.author}-${idx}`}
-              className="w-[300px] sm:w-[370px] min-h-[190px] p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-xs flex flex-col justify-between flex-shrink-0 hover:border-[#FFD700] dark:hover:border-[#FFD700] hover:shadow-md transition-all duration-300 group"
+              className="w-[300px] sm:w-[370px] min-h-[190px] p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-xs flex flex-col justify-between flex-shrink-0 hover:border-[#D5B1A0] dark:hover:border-[#D5B1A0] hover:shadow-md transition-all duration-300 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -184,7 +184,7 @@ export function ReviewsSection() {
 
               <div className="pt-3 border-t border-[var(--border-subtle)]/25 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FFD700]/25 to-[#E6C200]/35 text-[#292323] dark:text-[#FFD700] font-heading font-bold text-xs flex items-center justify-center border border-[#FFD700]/30 flex-shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#D5B1A0]/25 to-[#C49A87]/35 text-[#292323] dark:text-[#D5B1A0] font-heading font-bold text-xs flex items-center justify-center border border-[#D5B1A0]/30 flex-shrink-0">
                     {getInitials(rev.author)}
                   </div>
                   <div>
@@ -196,7 +196,7 @@ export function ReviewsSection() {
                     </span>
                   </div>
                 </div>
-                <MessageSquareQuote className="w-4 h-4 text-[#FFD700]/80 flex-shrink-0" />
+                <MessageSquareQuote className="w-4 h-4 text-[#D5B1A0]/80 flex-shrink-0" />
               </div>
             </div>
           ))}

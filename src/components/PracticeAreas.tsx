@@ -216,7 +216,7 @@ export function PracticeAreas() {
             {bottomRowAreas.map((area, idx) => (
               <div
                 key={area.id}
-                className="h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border-2 border-[#FFD700]/50 dark:border-[#FFD700]/60 shadow-[0_10px_30px_rgba(255,215,0,0.15)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex flex-col justify-between group transition-all duration-300"
+                className="h-full p-6 sm:p-8 rounded-2xl bg-[var(--bg-card)] border-2 border-[#D5B1A0]/50 dark:border-[#D5B1A0]/60 shadow-[0_10px_30px_rgba(213,177,160,0.15)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex flex-col justify-between group transition-all duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -279,7 +279,7 @@ export function PracticeAreas() {
               <div
                 key={area.id}
                 className={`rounded-2xl bg-[var(--bg-card)] border transition-all duration-300 overflow-hidden ${
-                  isExpanded ? "border-[#FFD700] dark:border-[#FFD700] shadow-md" : "border-[var(--border-subtle)]/35 shadow-2xs"
+                  isExpanded ? "border-[#D5B1A0] dark:border-[#D5B1A0] shadow-md" : "border-[var(--border-subtle)]/35 shadow-2xs"
                 }`}
               >
                 {/* Cabeçalho do Card Mobile */}
@@ -337,7 +337,7 @@ export function PracticeAreas() {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-pill w-full bg-[#FFD700] hover:bg-[#E6C200] text-[#292323] font-bold text-xs py-2.5 gap-1.5 shadow-xs flex items-center justify-center cursor-pointer"
+                        className="btn-pill w-full bg-[#D5B1A0] hover:bg-[#C49A87] text-[#292323] font-bold text-xs py-2.5 gap-1.5 shadow-xs flex items-center justify-center cursor-pointer"
                       >
                         <span>Tirar dúvidas com um advogado</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />

@@ -141,10 +141,10 @@ export function HowWeWork() {
           {/* Linha guia de fundo */}
           <div className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-[var(--border-subtle)]/25 -z-10" />
 
-          {/* Linha de progresso conectora Champagne */}
+          {/* Linha de progresso conectora */}
           <div
             ref={progressBarRef}
-            className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#532729] via-[#FFD700] to-[#532729] -z-10 will-change-transform"
+            className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#532729] via-[#D5B1A0] to-[#532729] -z-10 will-change-transform"
           />
 
           {/* 4 Passos Estruturados */}
@@ -152,11 +152,11 @@ export function HowWeWork() {
             {WORK_STEPS.map((step, idx) => (
               <div
                 key={idx}
-                className="step-card-item h-full p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 shadow-xs flex flex-col justify-between relative group hover:border-[#FFD700] hover:shadow-md hover-lift transition-all duration-300 will-change-transform"
+                className="step-card-item h-full p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/35 shadow-xs flex flex-col justify-between relative group hover:border-[#D5B1A0] hover:shadow-md hover-lift transition-all duration-300 will-change-transform"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center border border-[var(--border-subtle)] group-hover:bg-[#FFD700] group-hover:text-[#292323] dark:group-hover:bg-[#FFD700] dark:group-hover:text-[#292323] transition-all duration-300 shadow-2xs">
+                    <div className="w-11 h-11 rounded-xl bg-[var(--bg-secondary)] flex items-center justify-center border border-[var(--border-subtle)] group-hover:bg-[#D5B1A0] group-hover:text-[#292323] dark:group-hover:bg-[#D5B1A0] dark:group-hover:text-[#292323] transition-all duration-300 shadow-2xs">
                       <span className="font-heading text-xl font-bold text-[var(--accent)] group-hover:text-[#292323] dark:group-hover:text-[#292323] transition-colors">
                         {step.number}
                       </span>

@@ -142,7 +142,7 @@ export function FaqSection() {
                 onClick={() => setActiveTab(cat.id)}
                 className={`px-5 py-2.5 rounded-full font-heading text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-[#FFD700] text-[#111111] font-bold border border-[#FFD700] shadow-[0_2px_12px_rgba(255,215,0,0.35)] scale-105"
+                    ? "bg-[#D5B1A0] text-[#292323] font-bold border border-[#D5B1A0] shadow-[0_2px_12px_rgba(213,177,160,0.35)] scale-105"
                     : "bg-[var(--bg-secondary)]/80 text-[var(--text-muted)] border border-transparent hover:text-[var(--text-main)] hover:bg-[var(--bg-secondary)]"
                 }`}
               >
@@ -174,7 +174,7 @@ export function FaqSection() {
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       isOpen
-                        ? "bg-[#FFD700] text-[#111111] rotate-180"
+                        ? "bg-[#D5B1A0] text-[#292323] rotate-180"
                         : "bg-[var(--bg-secondary)] text-[var(--accent)] group-hover:bg-[var(--accent)]/15"
                     }`}
                   >
@@ -219,7 +219,7 @@ export function FaqSection() {
           className="p-8 sm:p-10 rounded-3xl bg-[var(--bg-secondary)]/80 backdrop-blur-sm border border-[var(--border-subtle)]/50 text-center will-change-transform shadow-xs"
         >
           <div className="w-14 h-14 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] flex items-center justify-center mx-auto mb-4 text-[var(--accent)] shadow-2xs">
-            <HelpCircle className="w-7 h-7 text-[#FFD700]" />
+            <HelpCircle className="w-7 h-7 text-[#D5B1A0]" />
           </div>
           <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--text-main)] mb-2.5">
             Sua dúvida não está listada acima?

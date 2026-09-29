@@ -99,7 +99,7 @@ export function InstitutionalPillars() {
           {/* Linha Champagne desenhada pelo scroll */}
           <div
             ref={lineRef}
-            className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#FFD700] via-[#F2E7DF] to-[#FFD700] dark:from-[#FFD700] dark:via-[#532729] dark:to-[#FFD700] will-change-transform"
+            className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#D5B1A0] via-[#F2E7DF] to-[#D5B1A0] dark:from-[#D5B1A0] dark:via-[#532729] dark:to-[#D5B1A0] will-change-transform"
           />
           <div className="flex items-center gap-2.5">
             <Award className="w-4 h-4 text-[var(--accent)]" />

@@ -21,7 +21,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
     >
       {/* 1. PILARES: Linhas verticais e nós de precisão */}
       {variant === "pillars" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_95%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_95%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
                 <line x1="0" y1="0" x2="0" y2="80" stroke="currentColor" strokeWidth="1" />
                 <line x1="12" y1="0" x2="12" y2="80" stroke="currentColor" strokeWidth="0.8" />
                 <line x1="24" y1="0" x2="24" y2="80" stroke="currentColor" strokeWidth="1" />
-                <circle cx="12" cy="40" r="1.5" className="fill-[#431617]/[0.18] dark:fill-[#FFD700]/[0.20]" />
+                <circle cx="12" cy="40" r="1.5" className="fill-[#431617]/[0.18] dark:fill-[#D5B1A0]/[0.20]" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#pillarsVerticalPattern)" />
@@ -47,7 +47,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 2. SOBRE A ADVOGADA: Malha vertical com fios de luz e diagonais estruturais */}
       {variant === "about" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(circle_at_65%_45%,black_45%,transparent_90%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(circle_at_65%_45%,black_45%,transparent_90%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 3. ÁREAS DE ATUAÇÃO: Grid vertical fino com nós de precisão */}
       {variant === "areas" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(ellipse_at_top,black_50%,transparent_90%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(ellipse_at_top,black_50%,transparent_90%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
                 <line x1="16" y1="0" x2="16" y2="100" stroke="currentColor" strokeWidth="0.75" />
                 <line x1="32" y1="0" x2="32" y2="100" stroke="currentColor" strokeWidth="1" />
                 <line x1="0" y1="50" x2="120" y2="50" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
-                <circle cx="16" cy="50" r="1.5" className="fill-[#431617]/[0.18] dark:fill-[#FFD700]/[0.20]" />
+                <circle cx="16" cy="50" r="1.5" className="fill-[#431617]/[0.18] dark:fill-[#D5B1A0]/[0.20]" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#areasVerticalGrid)" />
@@ -93,7 +93,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 4. AVALIAÇÕES: Linhas verticais */}
       {variant === "reviews" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(ellipse_at_bottom,black_45%,transparent_90%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(ellipse_at_bottom,black_45%,transparent_90%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 5. METODOLOGIA: Linha contínua conectora */}
       {variant === "methodology" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_92%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_92%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 6. CONTEÚDO EDUCATIVO: Padrão linear editorial */}
       {variant === "educational" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(circle_at_30%_50%,black_45%,transparent_90%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(circle_at_30%_50%,black_45%,transparent_90%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 7. FAQ: Linhas sutis com nós de precisão */}
       {variant === "faq" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(circle_at_50%_40%,black_50%,transparent_92%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(circle_at_50%_40%,black_50%,transparent_92%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
@@ -164,7 +164,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
               >
                 <line x1="0" y1="0" x2="0" y2="70" stroke="currentColor" strokeWidth="1" />
                 <line x1="12" y1="0" x2="12" y2="70" stroke="currentColor" strokeWidth="0.8" />
-                <circle cx="6" cy="35" r="1.5" className="fill-[#431617]/[0.18] dark:fill-[#FFD700]/[0.20]" />
+                <circle cx="6" cy="35" r="1.5" className="fill-[#431617]/[0.18] dark:fill-[#D5B1A0]/[0.20]" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#faqVerticalPattern)" />
@@ -174,7 +174,7 @@ export function GeometricLines({ variant, className = "" }: GeometricLinesProps)
 
       {/* 8. CONTATO: Linhas verticais */}
       {variant === "contact" && (
-        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#FFD700]/[0.07] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_90%)]">
+        <div className="absolute inset-0 text-[#431617]/[0.06] dark:text-[#D5B1A0]/[0.07] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_90%)]">
           <svg
             className="w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
