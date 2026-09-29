@@ -23,11 +23,8 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+      setIsScrolled(scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -62,15 +59,6 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  // Escolhe a logo apropriada:
-  // No topo (fundo transparente sobre o Hero escuro), usa a logo clara com letras brancas.
-  // No scroll, usa a logo escura no fundo branco (modo claro) ou a logo clara no fundo escuro (modo dark).
-  const currentLogo = !isScrolled
-    ? "/logo_sem_fundo_usarnomodoescuro.png"
-    : theme === "dark"
-    ? "/logo_sem_fundo_usarnomodoescuro.png"
-    : "/logo_sem_fundo_usarnomodoclaro.png";
-
   const drawerLogo =
     theme === "dark"
       ? "/logo_sem_fundo_usarnomodoescuro.png"
@@ -101,11 +89,23 @@ export function Navbar() {
         >
           <div className="relative h-14 sm:h-16 w-32 sm:w-36 max-w-[36vw] transition-transform duration-300 group-hover:scale-105">
             <Image
-              src={currentLogo}
+              src="/logo_sem_fundo_usarnomodoescuro.png"
               alt={OFFICE_INFO.name}
               fill
               priority
-              className="object-contain object-left drop-shadow-md"
+              className={`object-contain object-left drop-shadow-md transition-opacity duration-300 ${
+                !isScrolled || theme === "dark" ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+              sizes="(max-width: 640px) 140px, 160px"
+            />
+            <Image
+              src="/logo_sem_fundo_usarnomodoclaro.png"
+              alt={OFFICE_INFO.name}
+              fill
+              priority
+              className={`object-contain object-left drop-shadow-md transition-opacity duration-300 ${
+                isScrolled && theme !== "dark" ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
               sizes="(max-width: 640px) 140px, 160px"
             />
           </div>
@@ -117,7 +117,7 @@ export function Navbar() {
         className={`fixed top-0 left-0 right-0 w-full max-w-full z-40 transition-all duration-300 ${
           isScrolled
             ? "bg-white/95 dark:bg-[#121316]/95 backdrop-blur-md shadow-xs border-b border-gray-200/80 dark:border-white/10 py-2.5 sm:py-3"
-            : "bg-transparent border-b border-transparent py-3.5 sm:py-4"
+            : "bg-transparent border-b border-transparent shadow-none py-3.5 sm:py-4 pointer-events-auto"
         }`}
       >
         <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
@@ -136,12 +136,26 @@ export function Navbar() {
                   aria-label="Ir para a página inicial"
                 >
                   <div className="relative h-16 xl:h-20 w-60 xl:w-72 transition-transform duration-300 group-hover:scale-105">
+                    {/* Logo Branca para topo transparente ou modo escuro */}
                     <Image
-                      src={currentLogo}
+                      src="/logo_sem_fundo_usarnomodoescuro.png"
                       alt={OFFICE_INFO.name}
                       fill
                       priority
-                      className="object-contain object-left drop-shadow-sm"
+                      className={`object-contain object-left drop-shadow-sm transition-opacity duration-300 ${
+                        !isScrolled || theme === "dark" ? "opacity-100" : "opacity-0 pointer-events-none"
+                      }`}
+                      sizes="(min-width: 1280px) 288px, 240px"
+                    />
+                    {/* Logo Escura para modo claro quando scrolled com menu branco */}
+                    <Image
+                      src="/logo_sem_fundo_usarnomodoclaro.png"
+                      alt={OFFICE_INFO.name}
+                      fill
+                      priority
+                      className={`object-contain object-left drop-shadow-sm transition-opacity duration-300 ${
+                        isScrolled && theme !== "dark" ? "opacity-100" : "opacity-0 pointer-events-none"
+                      }`}
                       sizes="(min-width: 1280px) 288px, 240px"
                     />
                   </div>
@@ -153,7 +167,7 @@ export function Navbar() {
             <nav
               className={`hidden lg:flex items-center gap-6 xl:gap-8 text-[0.875rem] font-heading uppercase tracking-wider transition-colors duration-300 ${
                 !isScrolled
-                  ? "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.75)]"
+                  ? "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]"
                   : "text-[#18191C] dark:text-[#F3F4F6]"
               }`}
             >
@@ -177,7 +191,7 @@ export function Navbar() {
                   <span className="editorial-link">O Escritório</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      officeDropdownOpen ? "rotate-180 text-[var(--accent)]" : "opacity-70"
+                      officeDropdownOpen ? "rotate-180 text-[var(--accent)]" : !isScrolled ? "text-white/80" : "opacity-70"
                     }`}
                   />
                 </button>
@@ -251,7 +265,7 @@ export function Navbar() {
                   <span className="editorial-link">Áreas de Atuação</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      areasDropdownOpen ? "rotate-180 text-[var(--accent)]" : "opacity-70"
+                      areasDropdownOpen ? "rotate-180 text-[var(--accent)]" : !isScrolled ? "text-white/80" : "opacity-70"
                     }`}
                   />
                 </button>
