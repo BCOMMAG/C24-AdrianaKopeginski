@@ -89,21 +89,21 @@ export function InstitutionalPillars() {
     <section
       id="pilares"
       ref={sectionRef}
-      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-secondary)]/50 py-10 sm:py-14 relative shadow-2xs overflow-hidden"
+      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-secondary)]/50 py-5 sm:py-14 relative shadow-2xs overflow-hidden"
     >
       {/* Linhas Geométricas Sutis de Fundo */}
       <GeometricLines variant="pillars" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="relative flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-8 text-[var(--text-muted)]">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 relative z-10">
+        <div className="relative flex items-center justify-between pb-2.5 sm:pb-4 border-b border-[var(--border-subtle)]/25 mb-4 sm:mb-8 text-[var(--text-muted)]">
           {/* Linha Champagne desenhada pelo scroll */}
           <div
             ref={lineRef}
             className="absolute -bottom-[1px] left-0 right-0 h-[2px] bg-gradient-to-r from-[#D5B1A0] via-white to-[#D5B1A0] dark:from-[#D5B1A0] dark:via-[#1C1E23] dark:to-[#D5B1A0] will-change-transform"
           />
-          <div className="flex items-center gap-2.5">
-            <Award className="w-4 h-4 text-[var(--accent)]" />
-            <span className="font-heading uppercase text-xs tracking-widest font-bold text-[var(--text-main)]">
+          <div className="flex items-center gap-2">
+            <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[var(--accent)]" />
+            <span className="font-heading uppercase text-[0.6875rem] sm:text-xs tracking-widest font-bold text-[var(--text-main)]">
               Pilares Institucionais de Atuação
             </span>
           </div>
@@ -112,17 +112,17 @@ export function InstitutionalPillars() {
           </span>
         </div>
 
-        {/* Grade com os 4 Pilares */}
+        {/* Grade com os 4 Pilares: No Mobile ficam em UMA ÚNICA LINHA (grid-cols-4), sem descrições */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[var(--border-subtle)]/30"
+          className="grid grid-cols-4 gap-1 sm:gap-8 divide-x divide-[var(--border-subtle)]/30"
         >
           {/* 1. Atendimento Personalizado */}
-          <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 first:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-              <UserCheck className="w-5 h-5 text-[var(--accent)]" />
+          <div className="pillar-item flex flex-col items-center text-center sm:items-start sm:text-left px-1 sm:px-6 will-change-transform">
+            <div className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 mb-1 sm:mb-2 text-[var(--accent)]">
+              <UserCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[var(--accent)] flex-shrink-0" />
               <span
-                className="metric-counter font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]"
+                className="metric-counter font-heading text-xs sm:text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-main)] truncate"
                 data-target="100"
                 data-prefix=""
                 data-suffix="%"
@@ -130,20 +130,20 @@ export function InstitutionalPillars() {
                 100%
               </span>
             </div>
-            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+            <h3 className="font-heading text-[0.625rem] sm:text-base font-semibold text-[var(--text-main)] leading-tight mb-0 sm:mb-1.5">
               Atendimento Humanizado
             </h3>
-            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+            <p className="hidden sm:block font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Contato direto com a advogada titular, garantindo escuta empática, acolhimento e acompanhamento pessoal em cada fase do seu processo.
             </p>
           </div>
 
           {/* 2. Confiança no Google Reviews */}
-          <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-              <ShieldCheck className="w-5 h-5 text-[var(--accent)]" />
+          <div className="pillar-item flex flex-col items-center text-center sm:items-start sm:text-left px-1 sm:px-6 will-change-transform">
+            <div className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 mb-1 sm:mb-2 text-[var(--accent)]">
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[var(--accent)] flex-shrink-0" />
               <span
-                className="metric-counter font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]"
+                className="metric-counter font-heading text-xs sm:text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-main)] truncate"
                 data-target="5.0"
                 data-prefix=""
                 data-suffix=" ★"
@@ -152,42 +152,42 @@ export function InstitutionalPillars() {
                 5.0 ★
               </span>
             </div>
-            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+            <h3 className="font-heading text-[0.625rem] sm:text-base font-semibold text-[var(--text-main)] leading-tight mb-0 sm:mb-1.5">
               Google Verificado
             </h3>
-            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+            <p className="hidden sm:block font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Reconhecimento comprovado pela dedicação, clareza nas orientações e agilidade na resolução dos casos previdenciários.
             </p>
           </div>
 
           {/* 3. Atuação Especializada em Previdenciário */}
-          <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-              <Award className="w-5 h-5 text-[var(--accent)]" />
-              <span className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]">
+          <div className="pillar-item flex flex-col items-center text-center sm:items-start sm:text-left px-1 sm:px-6 will-change-transform">
+            <div className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 mb-1 sm:mb-2 text-[var(--accent)]">
+              <Award className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[var(--accent)] flex-shrink-0" />
+              <span className="font-heading text-[0.625rem] sm:text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-main)] truncate">
                 Foco Total
               </span>
             </div>
-            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+            <h3 className="font-heading text-[0.625rem] sm:text-base font-semibold text-[var(--text-main)] leading-tight mb-0 sm:mb-1.5">
               Direito Previdenciário
             </h3>
-            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+            <p className="hidden sm:block font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Especialização dedicada na concessão de aposentadorias e benefícios do INSS com cálculos de alta precisão.
             </p>
           </div>
 
           {/* 4. Rigor Ético & CFOAB */}
-          <div className="pillar-item flex flex-col items-start px-0 sm:px-6 pt-6 sm:pt-0 will-change-transform">
-            <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-              <Scale className="w-5 h-5 text-[var(--accent)]" />
-              <span className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-main)]">
+          <div className="pillar-item flex flex-col items-center text-center sm:items-start sm:text-left px-1 sm:px-6 will-change-transform">
+            <div className="flex items-center justify-center sm:justify-start gap-1 sm:gap-2 mb-1 sm:mb-2 text-[var(--accent)]">
+              <Scale className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[var(--accent)] flex-shrink-0" />
+              <span className="font-heading text-xs sm:text-2xl lg:text-3xl font-bold tracking-tight text-[var(--text-main)] truncate">
                 CFOAB
               </span>
             </div>
-            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+            <h3 className="font-heading text-[0.625rem] sm:text-base font-semibold text-[var(--text-main)] leading-tight mb-0 sm:mb-1.5">
               Conformidade Ética
             </h3>
-            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+            <p className="hidden sm:block font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Atuação estritamente pautada no Provimento nº 205/2021 do Conselho Federal da OAB e no Código de Ética e Disciplina da Advocacia.
             </p>
           </div>
