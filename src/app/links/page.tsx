@@ -96,12 +96,12 @@ export default function LinksPage() {
   ];
 
   return (
-    <main className="min-h-[100dvh] lg:h-screen lg:max-h-screen lg:overflow-hidden w-screen max-w-full bg-[#F2E7DF] text-[#292323]">
+    <main className="min-h-[100dvh] lg:h-screen lg:max-h-screen lg:overflow-hidden w-screen max-w-full bg-[#F0F2F5] text-[#18191C]">
       {/* ===================== VERSÃO DESKTOP (Split Screen 50/50 - Sem Scroll - Estilo C08-Sloane) ===================== */}
       <div className="hidden lg:grid lg:grid-cols-2 h-full w-full overflow-hidden">
         
-        {/* LADO ESQUERDO: Fundo Bordô Profundo com Logo DOBRADA e Identidade Visual */}
-        <div className="relative bg-[#431617] text-[#F2E7DF] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#D5B1A0]/25">
+        {/* LADO ESQUERDO: Fundo Preto Grafite com Logo DOBRADA e Identidade Visual */}
+        <div className="relative bg-[#121316] text-[#F3F4F6] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#D5B1A0]/25">
           <div className="absolute inset-0 pointer-events-none opacity-10">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -115,7 +115,7 @@ export default function LinksPage() {
           </div>
 
           <div className="relative z-10 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D5B1A0]/40 bg-[#292323]/90 backdrop-blur-md text-xs font-heading tracking-wider text-[#D5B1A0]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#D5B1A0]/40 bg-[#1C1E23]/90 backdrop-blur-md text-xs font-heading tracking-wider text-[#D5B1A0]">
               <ShieldCheck className="w-3.5 h-3.5 text-[#D5B1A0]" />
               <span>Advocacia Especialista em Direito Previdenciário</span>
             </div>
@@ -143,23 +143,23 @@ export default function LinksPage() {
 
             <div className="h-0.5 w-16 bg-[#D5B1A0]/60 mb-4" />
 
-            <h1 className="font-heading text-lg xl:text-xl font-semibold max-w-md leading-snug text-[#F2E7DF]">
+            <h1 className="font-heading text-lg xl:text-xl font-semibold max-w-md leading-snug text-[#F3F4F6]">
               {OFFICE_INFO.tagline}
             </h1>
 
-            <p className="font-body text-xs xl:text-sm text-[#F2E7DF]/85 max-w-sm mt-3 leading-relaxed">
+            <p className="font-body text-xs xl:text-sm text-[#F3F4F6]/85 max-w-sm mt-3 leading-relaxed">
               Atuação jurídica técnica, acolhedora e combativa na concessão e revisão de benefícios do INSS perante as Agências da Previdência e a Justiça Federal.
             </p>
           </div>
 
-          <div className="relative z-10 flex items-center justify-between text-xs text-[#F2E7DF]/70 font-body pt-3 border-t border-white/10">
+          <div className="relative z-10 flex items-center justify-between text-xs text-[#F3F4F6]/70 font-body pt-3 border-t border-white/10">
             <p>{OFFICE_INFO.addressShort}</p>
             <p className="text-[0.6875rem] text-[#D5B1A0]/90">Provimento 205/2021 CFOAB</p>
           </div>
         </div>
 
-        {/* LADO DIREITO: Fundo Marfim Quente com Logo Institucional + Canais de Atendimento */}
-        <div className="bg-[#F2E7DF] flex flex-col justify-between p-6 xl:p-8 h-full overflow-y-auto">
+        {/* LADO DIREITO: Fundo Prateado Suave com Logo Institucional + Canais de Atendimento */}
+        <div className="bg-[#F0F2F5] flex flex-col justify-between p-6 xl:p-8 h-full overflow-y-auto">
           <div className="max-w-md mx-auto w-full flex flex-col justify-center my-auto space-y-2.5 xl:space-y-3 py-3">
             
             {/* Header com Logo no Lado Direito */}
@@ -178,13 +178,13 @@ export default function LinksPage() {
                   sizes="(min-width: 1280px) 500px, 440px"
                 />
               </Link>
-              <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[#532729] block mb-0.5 font-bold">
+              <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[#4B5563] block mb-0.5 font-bold">
                 Acesso Imediato
               </span>
-              <h2 className="font-heading text-xl xl:text-2xl font-bold text-[#292323]">
+              <h2 className="font-heading text-xl xl:text-2xl font-bold text-[#18191C]">
                 Canais Oficiais de Atendimento
               </h2>
-              <p className="font-body text-xs text-[#532729] mt-0.5">
+              <p className="font-body text-xs text-[#4B5563] mt-0.5">
                 Escolha o canal desejado para se comunicar diretamente com nossa equipe jurídica.
               </p>
             </div>
@@ -197,7 +197,7 @@ export default function LinksPage() {
                 const buttonClasses = `w-full p-2.5 xl:p-3 rounded-xl flex items-center justify-between group transition-all duration-300 border ${
                   item.highlight
                     ? "bg-[#25D366] hover:bg-[#20ba59] text-white border-transparent shadow-sm hover:shadow-md"
-                    : "bg-white text-[#292323] border-[#532729]/20 hover:border-[#D5B1A0] shadow-2xs hover:shadow-xs"
+                    : "bg-white text-[#18191C] border-gray-200/90 hover:border-[#D5B1A0] shadow-2xs hover:shadow-xs"
                 }`;
 
                 const content = (
@@ -205,7 +205,7 @@ export default function LinksPage() {
                     <div className="flex items-center gap-2.5">
                       <div
                         className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                          item.highlight ? "bg-white/20 text-white" : "bg-[#E9DDD4] text-[#532729]"
+                          item.highlight ? "bg-white/20 text-white" : "bg-[#F7EFEA] text-[#18191C]"
                         }`}
                       >
                         <Icon className="w-3.5 h-3.5" />
@@ -216,7 +216,7 @@ export default function LinksPage() {
                         </span>
                         <span
                           className={`font-body text-[0.6875rem] block truncate max-w-[260px] ${
-                            item.highlight ? "text-white/90" : "text-[#532729]/80"
+                            item.highlight ? "text-white/90" : "text-[#4B5563]"
                           }`}
                         >
                           {item.subtitle}
@@ -225,7 +225,7 @@ export default function LinksPage() {
                     </div>
                     <ArrowUpRight
                       className={`w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                        item.highlight ? "text-white" : "text-[#532729] group-hover:text-[#292323]"
+                        item.highlight ? "text-white" : "text-[#4B5563] group-hover:text-[#18191C]"
                       }`}
                     />
                   </>
@@ -250,16 +250,16 @@ export default function LinksPage() {
             </div>
 
             {/* Caixa de Especialidades */}
-            <div className="p-2.5 rounded-xl border border-[#532729]/20 bg-white/80">
-              <div className="flex items-center gap-1.5 text-[0.6875rem] uppercase tracking-wider font-heading text-[#292323] font-bold mb-1">
-                <Briefcase className="w-3.5 h-3.5 text-[#532729]" />
+            <div className="p-2.5 rounded-xl border border-gray-200/90 bg-white shadow-2xs">
+              <div className="flex items-center gap-1.5 text-[0.6875rem] uppercase tracking-wider font-heading text-[#18191C] font-bold mb-1">
+                <Briefcase className="w-3.5 h-3.5 text-[#D5B1A0]" />
                 <span>Especialidades Jurídicas</span>
               </div>
               <div className="flex flex-wrap gap-1">
                 {specialties.map((spec, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-2 py-0.5 rounded-md text-[0.6875rem] font-body bg-[#E9DDD4] text-[#292323] border border-[#532729]/15 font-medium"
+                    className="px-2 py-0.5 rounded-md text-[0.6875rem] font-body bg-[#F7EFEA] text-[#18191C] border border-[#D5B1A0]/20 font-medium"
                   >
                     {spec}
                   </span>
@@ -269,24 +269,24 @@ export default function LinksPage() {
 
           </div>
 
-          <div className="text-center text-[0.6875rem] font-body text-[#532729]/80 pt-2 border-t border-[#532729]/15">
+          <div className="text-center text-[0.6875rem] font-body text-[#4B5563] pt-2 border-t border-gray-200/80">
             {OFFICE_INFO.addressShort} • © {new Date().getFullYear()} {OFFICE_INFO.name}
           </div>
         </div>
       </div>
 
       {/* ===================== VERSÃO MOBILE (100% Fit Sem Scroll + Logo Centralizada + Cards Agrupados - h-[100dvh] overflow-hidden) ===================== */}
-      <div className="lg:hidden relative flex flex-col justify-between h-[100dvh] max-h-[100dvh] w-full px-4 py-3 sm:py-4 overflow-hidden bg-[#F2E7DF]">
+      <div className="lg:hidden relative flex flex-col justify-between h-[100dvh] max-h-[100dvh] w-full px-4 py-3 sm:py-4 overflow-hidden bg-[#F0F2F5]">
         {/* Linhas e Formas Geométricas Minimalistas em Dourado Champagne no Plano de Fundo */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
           {/* Brilho radial dourado sutil */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(213,177,160,0.14)_0%,rgba(242,231,223,0)_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(213,177,160,0.18)_0%,rgba(240,242,245,0)_70%)]" />
 
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <defs>
               {/* Malha ultra fina com nós dourados */}
               <pattern id="golden-mobile-grid-c24" width="36" height="36" patternUnits="userSpaceOnUse">
-                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#532729" strokeWidth="0.4" strokeOpacity="0.08" />
+                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#18191C" strokeWidth="0.4" strokeOpacity="0.06" />
                 <circle cx="0" cy="0" r="0.9" fill="#D5B1A0" fillOpacity="0.25" />
               </pattern>
               {/* Gradientes lineares para traços dourados */}
@@ -314,8 +314,8 @@ export default function LinksPage() {
             {/* Linhas verticais de enquadramento arquitetônico */}
             <line x1="6%" y1="0" x2="6%" y2="100%" stroke="#D5B1A0" strokeWidth="0.5" strokeOpacity="0.22" />
             <line x1="94%" y1="0" x2="94%" y2="100%" stroke="#D5B1A0" strokeWidth="0.5" strokeOpacity="0.22" />
-            <line x1="0" y1="22%" x2="100%" y2="22%" stroke="#532729" strokeWidth="0.5" strokeOpacity="0.12" strokeDasharray="5 5" />
-            <line x1="0" y1="78%" x2="100%" y2="78%" stroke="#532729" strokeWidth="0.5" strokeOpacity="0.12" strokeDasharray="5 5" />
+            <line x1="0" y1="22%" x2="100%" y2="22%" stroke="#18191C" strokeWidth="0.5" strokeOpacity="0.08" strokeDasharray="5 5" />
+            <line x1="0" y1="78%" x2="100%" y2="78%" stroke="#18191C" strokeWidth="0.5" strokeOpacity="0.08" strokeDasharray="5 5" />
 
             {/* Círculos e Arcos Geométricos Minimalistas */}
             <circle cx="88%" cy="18%" r="85" fill="none" stroke="#D5B1A0" strokeWidth="0.75" strokeOpacity="0.22" />
@@ -362,7 +362,7 @@ export default function LinksPage() {
               const buttonClasses = `group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl border transition-all duration-200 active:scale-[0.98] ${
                 item.highlight
                   ? "bg-[#25D366] text-white border-transparent shadow-[0_3px_12px_rgba(37,211,102,0.28)]"
-                  : "bg-white/95 backdrop-blur-xs hover:bg-white border-[#532729]/20 text-[#292323] shadow-2xs hover:border-[#D5B1A0]"
+                  : "bg-white/95 backdrop-blur-xs hover:bg-white border-gray-200/90 text-[#18191C] shadow-2xs hover:border-[#D5B1A0]"
               }`;
 
               const content = (
@@ -370,7 +370,7 @@ export default function LinksPage() {
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div
                       className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                        item.highlight ? "bg-white/20 text-white" : "bg-[#E9DDD4] border border-[#532729]/15 text-[#532729]"
+                        item.highlight ? "bg-white/20 text-white" : "bg-[#F7EFEA] border border-[#D5B1A0]/20 text-[#18191C]"
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
@@ -379,7 +379,7 @@ export default function LinksPage() {
                       <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight truncate">{item.title}</h2>
                       <p
                         className={`text-[0.6875rem] font-body truncate ${
-                          item.highlight ? "text-white/90" : "text-[#532729]/80"
+                          item.highlight ? "text-white/90" : "text-[#4B5563]"
                         }`}
                       >
                         {item.subtitle}
@@ -412,28 +412,28 @@ export default function LinksPage() {
               href={OFFICE_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl bg-white/95 border border-[#532729]/20 text-[#292323] hover:border-[#D5B1A0] active:scale-[0.98] transition-all shadow-2xs w-full"
+              className="group flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-xl bg-white/95 border border-gray-200/90 text-[#18191C] hover:border-[#D5B1A0] active:scale-[0.98] transition-all shadow-2xs w-full"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#E9DDD4] border border-[#532729]/15 text-[#532729]">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#F7EFEA] border border-[#D5B1A0]/20 text-[#18191C]">
                   <InstagramIcon className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0 text-left">
-                  <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight text-[#292323]">
+                  <h2 className="font-heading font-bold text-xs sm:text-sm leading-tight text-[#18191C]">
                     Instagram Institucional
                   </h2>
-                  <p className="text-[0.6875rem] font-body text-[#532729]/80 truncate">
+                  <p className="text-[0.6875rem] font-body text-[#4B5563] truncate">
                     {OFFICE_INFO.instagramHandle} • Conteúdo jurídico previdenciário
                   </p>
                 </div>
               </div>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#532729] group-hover:text-[#292323] flex-shrink-0 ml-1.5 transition-colors" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#4B5563] group-hover:text-[#18191C] flex-shrink-0 ml-1.5 transition-colors" />
             </a>
           </div>
         </div>
 
         {/* Rodapé Mobile Compacto */}
-        <div className="relative z-10 text-center text-[0.625rem] sm:text-[0.6875rem] text-[#532729]/80 font-body pt-1 pb-1">
+        <div className="relative z-10 text-center text-[0.625rem] sm:text-[0.6875rem] text-[#4B5563] font-body pt-1 pb-1">
           <p>{OFFICE_INFO.addressShort} • © {new Date().getFullYear()} {OFFICE_INFO.name}</p>
         </div>
       </div>

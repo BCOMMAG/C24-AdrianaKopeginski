@@ -144,7 +144,7 @@ export function HowWeWork() {
           {/* Linha de progresso conectora */}
           <div
             ref={progressBarRef}
-            className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#532729] via-[#D5B1A0] to-[#532729] -z-10 will-change-transform"
+            className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#D5B1A0]/20 via-[#D5B1A0] to-[#D5B1A0]/20 -z-10 will-change-transform"
           />
 
           {/* 4 Passos Estruturados */}

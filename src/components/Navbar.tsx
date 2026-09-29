@@ -61,12 +61,11 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  // Escolhe a logo apropriada de acordo com o fundo/tema
-  const currentLogo = !isScrolled
-    ? "/logo_sem_fundo_usarnomodoescuro.png"
-    : theme === "dark"
-    ? "/logo_sem_fundo_usarnomodoescuro.png"
-    : "/logo_sem_fundo_usarnomodoclaro.png";
+  // Escolhe a logo apropriada de acordo com o tema (fundo branco no modo claro, fundo escuro no dark)
+  const currentLogo =
+    theme === "dark"
+      ? "/logo_sem_fundo_usarnomodoescuro.png"
+      : "/logo_sem_fundo_usarnomodoclaro.png";
 
   const drawerLogo =
     theme === "dark"
@@ -109,12 +108,10 @@ export function Navbar() {
         </Link>
       </div>
 
-      {/* 2. BARRA DE NAVEGAÇÃO PRINCIPAL (Z-INDEX 40) */}
+      {/* 2. BARRA DE NAVEGAÇÃO PRINCIPAL (Z-INDEX 40) - FUNDO BRANCO NO MODO CLARO */}
       <header
-        className={`fixed top-0 left-0 right-0 w-full max-w-full z-40 transition-all duration-300 ${
-          isScrolled
-            ? "bg-[var(--bg-primary)]/95 backdrop-blur-md shadow-sm border-b border-[var(--border-subtle)]/30 py-2.5 sm:py-3"
-            : "bg-transparent py-3 sm:py-4"
+        className={`fixed top-0 left-0 right-0 w-full max-w-full z-40 transition-all duration-300 bg-white/95 dark:bg-[#121316]/95 backdrop-blur-md border-b border-gray-200/80 dark:border-white/10 ${
+          isScrolled ? "shadow-xs py-2.5 sm:py-3" : "py-3 sm:py-3.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
@@ -147,11 +144,7 @@ export function Navbar() {
             </div>
 
             {/* Menu Desktop */}
-            <nav
-              className={`hidden lg:flex items-center gap-6 xl:gap-8 text-[0.875rem] font-heading uppercase tracking-wider transition-colors duration-300 ${
-                !isScrolled ? "text-white/95" : "text-[var(--text-main)]"
-              }`}
-            >
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[0.875rem] font-heading uppercase tracking-wider text-[#18191C] dark:text-[#F3F4F6] transition-colors duration-300">
               <Link href="#inicio" className="transition-colors editorial-link hover:text-[var(--accent)] font-semibold">
                 Início
               </Link>
@@ -331,11 +324,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`lg:hidden flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl border transition-colors flex-shrink-0 cursor-pointer ${
-                  !isScrolled
-                    ? "border-white/30 bg-black/40 backdrop-blur-md text-white hover:bg-black/60"
-                    : "border-[var(--border-subtle)]/40 bg-[var(--bg-card)] text-[var(--text-main)] hover:bg-[var(--bg-secondary)]"
-                }`}
+                className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl border border-gray-200 bg-white text-[#18191C] hover:bg-gray-100 dark:border-white/15 dark:bg-[#1C1E23] dark:text-white transition-colors flex-shrink-0 cursor-pointer shadow-2xs"
                 aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu de navegação"}
               >
                 {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
@@ -345,7 +334,7 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* 3. MENU MOBILE DRAWER (Z-INDEX 60) */}
+      {/* 3. MENU MOBILE DRAWER (Z-INDEX 60) - FUNDO BRANCO NO MODO CLARO */}
       <div
         className={`lg:hidden fixed inset-0 z-[60] transition-all duration-300 overflow-hidden ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto visible" : "opacity-0 pointer-events-none invisible"
@@ -356,7 +345,7 @@ export function Navbar() {
           onClick={closeMobileMenu}
         />
         <div
-          className={`fixed top-0 right-0 bottom-0 w-[80vw] max-w-xs bg-[var(--bg-primary)] border-l border-[var(--border-subtle)]/30 p-5 sm:p-6 flex flex-col justify-between shadow-2xl transition-transform duration-300 overflow-y-auto ${
+          className={`fixed top-0 right-0 bottom-0 w-[80vw] max-w-xs bg-white dark:bg-[#121316] text-[#18191C] dark:text-[#F3F4F6] border-l border-gray-200 dark:border-white/10 p-5 sm:p-6 flex flex-col justify-between shadow-2xl transition-transform duration-300 overflow-y-auto ${
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

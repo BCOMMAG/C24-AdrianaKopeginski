@@ -199,7 +199,7 @@ export function About() {
               <button
                 type="button"
                 onClick={handleToggleExpand}
-                className="btn-pill bg-[var(--bg-card)] text-[var(--text-main)] border-2 border-[var(--border-subtle)] hover:border-[#D5B1A0] dark:bg-[#532729] dark:text-[#F2E7DF] dark:border-[#D5B1A0]/30 dark:hover:bg-[#683335] gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
+                className="btn-pill bg-[var(--bg-card)] text-[var(--text-main)] border-2 border-[var(--border-subtle)] hover:border-[#D5B1A0] dark:bg-[#1C1E23] dark:text-[#F3F4F6] dark:border-[#D5B1A0]/30 dark:hover:bg-[#252830] gap-2 py-3 px-6 text-xs sm:text-sm font-semibold shadow-xs hover-lift transition-all cursor-pointer flex items-center"
                 aria-expanded={isExpanded}
               >
                 <span>{isExpanded ? "Ocultar detalhes" : "Conhecer Trajetória & Experiência"}</span>
@@ -265,7 +265,7 @@ export function About() {
           {/* Coluna da Foto Oficial */}
           <div className="lg:col-span-5 order-1 lg:order-2 w-full flex justify-center lg:justify-end">
             <div ref={photoCardRef} className="w-full max-w-[360px] sm:max-w-[400px] will-change-transform">
-              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#D5B1A0]/50 shadow-[0_12px_35px_rgba(41,35,35,0.25)] hover-lift group bg-[#431617]">
+              <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#D5B1A0]/50 shadow-[0_12px_35px_rgba(18,19,22,0.25)] hover-lift group bg-[#121316]">
                 {/* Feixe de luz suave */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 pointer-events-none" />
                 <Image
@@ -276,17 +276,17 @@ export function About() {
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 90vw, 420px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#431617]/95 via-[#431617]/30 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#121316]/95 via-[#121316]/30 to-transparent pointer-events-none" />
 
                 {/* Badge Inferior com Nome e Titularidade */}
                 <div className="absolute bottom-5 left-5 right-5 text-white z-10 pointer-events-none">
                   <span className="text-[0.6875rem] uppercase tracking-widest text-[#D5B1A0] font-heading font-bold block mb-1">
                     Advogada Titular
                   </span>
-                  <p className="font-heading text-xl sm:text-2xl font-bold leading-tight text-[#F2E7DF] drop-shadow-sm">
+                  <p className="font-heading text-xl sm:text-2xl font-bold leading-tight text-[#F3F4F6] drop-shadow-sm">
                     {LAWYER_PROFILE.name}
                   </p>
-                  <p className="text-xs text-[#F2E7DF]/90 font-body mt-1 leading-relaxed">
+                  <p className="text-xs text-[#F3F4F6]/90 font-body mt-1 leading-relaxed">
                     Especialista em Direito Previdenciário • CFOAB 205/2021
                   </p>
                 </div>

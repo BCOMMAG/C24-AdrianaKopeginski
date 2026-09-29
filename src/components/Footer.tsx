@@ -19,11 +19,11 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#431617] text-[#F2E7DF] border-t border-[#D5B1A0]/25 pt-16 pb-8">
+    <footer className="w-full bg-[#0E0F12] text-[#F3F4F6] border-t border-white/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Topo do Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#F2E7DF]/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
           {/* Coluna 1: Logo e Apresentação (5 colunas) */}
           <div className="lg:col-span-5 space-y-4">
@@ -44,11 +44,11 @@ export function Footer() {
               </div>
             </Link>
             
-            <p className="font-body text-xs sm:text-sm text-[#F2E7DF]/85 max-w-sm leading-relaxed">
+            <p className="font-body text-xs sm:text-sm text-[#F3F4F6]/85 max-w-sm leading-relaxed">
               Atuação jurídica especializada em Direito Previdenciário. Atendimento presencial em nossa sede física em Curitiba/PR (Sítio Cercado) e assessoria jurídica digital estratégica para clientes em todo o Brasil.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D5B1A0]/30 bg-[#292323] text-xs font-heading text-[#D5B1A0]">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D5B1A0]/30 bg-[#18191C] text-xs font-heading text-[#D5B1A0]">
               <ShieldCheck className="w-3.5 h-3.5 text-[#D5B1A0]" />
               <span>{OFFICE_INFO.lawyer} • Especialista em Direito Previdenciário</span>
             </div>
@@ -59,7 +59,7 @@ export function Footer() {
             <h4 className="font-heading text-xs uppercase tracking-widest text-[#D5B1A0] font-bold">
               Navegação
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-heading text-[#F2E7DF]/90">
+            <ul className="space-y-2 text-xs sm:text-sm font-heading text-[#F3F4F6]/90">
               <li>
                 <Link href="#inicio" className="hover:text-[#D5B1A0] transition-colors">Início</Link>
               </li>
@@ -98,7 +98,7 @@ export function Footer() {
             <h4 className="font-heading text-xs uppercase tracking-widest text-[#D5B1A0] font-bold">
               Canais Oficiais
             </h4>
-            <div className="space-y-1.5 text-xs sm:text-sm font-body text-[#F2E7DF]/85">
+            <div className="space-y-1.5 text-xs sm:text-sm font-body text-[#F3F4F6]/85">
               <p><strong className="text-white font-heading">Sede:</strong> {OFFICE_INFO.address}</p>
               <p><strong className="text-white font-heading">WhatsApp:</strong> {OFFICE_INFO.phone}</p>
               <p><strong className="text-white font-heading">Segunda a Sexta:</strong> {OFFICE_INFO.schedule.weekdays}</p>
@@ -130,7 +130,7 @@ export function Footer() {
         </div>
 
         {/* Rodapé Ético e Direitos Autorais */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-body text-[#F2E7DF]/70">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-body text-[#F3F4F6]/70">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
             <p>© {new Date().getFullYear()} {OFFICE_INFO.name}. Todos os direitos reservados.</p>
             <span className="hidden sm:inline opacity-40">•</span>

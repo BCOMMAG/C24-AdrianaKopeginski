@@ -4,45 +4,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg-primary: #F2E7DF;
+  --bg-primary: #F0F2F5;
   --bg-card: #FFFFFF;
-  --bg-secondary: #E9DDD4;
-  --text-main: #292323;
-  --text-muted: #532729;
-  --text-secondary: #3E3233;
+  --bg-secondary: #E5E7EB;
+  --text-main: #18191C;
+  --text-muted: #4B5563;
+  --text-secondary: #374151;
   --brand-gold: #D5B1A0;
   --brand-gold-hover: #C49A87;
   --brand-gold-light: #F7EFEA;
-  --brand-bordo: #431617;
-  --brand-vinho: #532729;
-  --brand-marfim: #F2E7DF;
-  --brand-carvao: #292323;
+  --brand-bordo: #18191C;
+  --brand-vinho: #4B5563;
+  --brand-marfim: #F0F2F5;
+  --brand-carvao: #18191C;
   --accent: #D5B1A0;
   --accent-hover: #C49A87;
   --accent-light: #F7EFEA;
-  --accent-dark: #292323;
-  --border-subtle: rgba(83, 39, 41, 0.18);
+  --accent-dark: #18191C;
+  --border-subtle: rgba(0, 0, 0, 0.08);
 }
 
 html.dark {
-  --bg-primary: #431617;
-  --bg-card: #532729;
-  --bg-secondary: #381213;
-  --text-main: #F2E7DF;
-  --text-muted: #D8C7BC;
-  --text-secondary: #E8DCD3;
+  --bg-primary: #121316;
+  --bg-card: #1C1E23;
+  --bg-secondary: #17181C;
+  --text-main: #F3F4F6;
+  --text-muted: #9CA3AF;
+  --text-secondary: #D1D5DB;
   --brand-gold: #D5B1A0;
   --brand-gold-hover: #E2C4B5;
-  --brand-gold-light: #4A3328;
-  --brand-bordo: #431617;
-  --brand-vinho: #532729;
-  --brand-marfim: #F2E7DF;
-  --brand-carvao: #292323;
+  --brand-gold-light: #3D2D24;
+  --brand-bordo: #121316;
+  --brand-vinho: #1C1E23;
+  --brand-marfim: #F3F4F6;
+  --brand-carvao: #121316;
   --accent: #D5B1A0;
   --accent-hover: #E2C4B5;
-  --accent-light: #4A3328;
-  --accent-dark: #431617;
-  --border-subtle: rgba(242, 231, 223, 0.16);
+  --accent-light: #3D2D24;
+  --accent-dark: #121316;
+  --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
 html {
