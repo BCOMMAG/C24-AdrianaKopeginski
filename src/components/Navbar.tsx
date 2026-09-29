@@ -23,14 +23,15 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -61,11 +62,14 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  // Escolhe a logo apropriada de acordo com o tema (fundo branco no modo claro, fundo escuro no dark)
-  const currentLogo =
-    theme === "dark"
-      ? "/logo_sem_fundo_usarnomodoescuro.png"
-      : "/logo_sem_fundo_usarnomodoclaro.png";
+  // Escolhe a logo apropriada:
+  // No topo (fundo transparente sobre o Hero escuro), usa a logo clara com letras brancas.
+  // No scroll, usa a logo escura no fundo branco (modo claro) ou a logo clara no fundo escuro (modo dark).
+  const currentLogo = !isScrolled
+    ? "/logo_sem_fundo_usarnomodoescuro.png"
+    : theme === "dark"
+    ? "/logo_sem_fundo_usarnomodoescuro.png"
+    : "/logo_sem_fundo_usarnomodoclaro.png";
 
   const drawerLogo =
     theme === "dark"
@@ -108,10 +112,12 @@ export function Navbar() {
         </Link>
       </div>
 
-      {/* 2. BARRA DE NAVEGAÇÃO PRINCIPAL (Z-INDEX 40) - FUNDO BRANCO NO MODO CLARO */}
+      {/* 2. BARRA DE NAVEGAÇÃO PRINCIPAL (Z-INDEX 40) */}
       <header
-        className={`fixed top-0 left-0 right-0 w-full max-w-full z-40 transition-all duration-300 bg-white/95 dark:bg-[#121316]/95 backdrop-blur-md border-b border-gray-200/80 dark:border-white/10 ${
-          isScrolled ? "shadow-xs py-2.5 sm:py-3" : "py-3 sm:py-3.5"
+        className={`fixed top-0 left-0 right-0 w-full max-w-full z-40 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/95 dark:bg-[#121316]/95 backdrop-blur-md shadow-xs border-b border-gray-200/80 dark:border-white/10 py-2.5 sm:py-3"
+            : "bg-transparent border-b border-transparent py-3.5 sm:py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
@@ -144,7 +150,13 @@ export function Navbar() {
             </div>
 
             {/* Menu Desktop */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[0.875rem] font-heading uppercase tracking-wider text-[#18191C] dark:text-[#F3F4F6] transition-colors duration-300">
+            <nav
+              className={`hidden lg:flex items-center gap-6 xl:gap-8 text-[0.875rem] font-heading uppercase tracking-wider transition-colors duration-300 ${
+                !isScrolled
+                  ? "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.75)]"
+                  : "text-[#18191C] dark:text-[#F3F4F6]"
+              }`}
+            >
               <Link href="#inicio" className="transition-colors editorial-link hover:text-[var(--accent)] font-semibold">
                 Início
               </Link>
@@ -308,7 +320,7 @@ export function Navbar() {
 
             {/* Ações à Direita: Tema + WhatsApp (Regra 9-C: Apenas "WhatsApp" em verde) + Menu Mobile */}
             <div className="relative z-10 flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
-              <ThemeToggle />
+              <ThemeToggle isScrolled={isScrolled} />
 
               <a
                 href={OFFICE_INFO.whatsappUrl}
@@ -324,7 +336,11 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl border border-gray-200 bg-white text-[#18191C] hover:bg-gray-100 dark:border-white/15 dark:bg-[#1C1E23] dark:text-white transition-colors flex-shrink-0 cursor-pointer shadow-2xs"
+                className={`lg:hidden flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl border transition-colors flex-shrink-0 cursor-pointer shadow-2xs ${
+                  !isScrolled
+                    ? "bg-black/35 border-white/20 text-white backdrop-blur-xs hover:bg-black/50"
+                    : "border-gray-200 bg-white text-[#18191C] hover:bg-gray-100 dark:border-white/15 dark:bg-[#1C1E23] dark:text-white"
+                }`}
                 aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu de navegação"}
               >
                 {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
