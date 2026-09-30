@@ -171,11 +171,9 @@ export function About() {
               </p>
             </div>
 
-            {/* Resumo da trajetória extraído de LAWYER_PROFILE */}
+            {/* Resumo da trajetória extraído de LAWYER_PROFILE — apenas 1º parágrafo visível por padrão */}
             <div className="about-text-anim space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
-              {LAWYER_PROFILE.bio.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
+              <p>{LAWYER_PROFILE.bio[0]}</p>
             </div>
 
             {/* Destaques Rápidos */}
@@ -224,6 +222,12 @@ export function About() {
             {/* CONTEÚDO COMPLETO CONDICIONAL */}
             {isExpanded && (
               <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)]/30 animate-fade-in-down">
+                {/* Parágrafos adicionais da bio (2º e 3º) */}
+                <div className="space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
+                  <p>{LAWYER_PROFILE.bio[1]}</p>
+                  <p>{LAWYER_PROFILE.bio[2]}</p>
+                </div>
+
                 <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-xs space-y-3">
                   <h4 className="font-heading text-base font-bold text-[var(--text-main)] flex items-center gap-2">
                     <Scale className="w-4 h-4 text-[var(--accent)]" />
