@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { LAWYER_PROFILE, OFFICE_INFO } from "@/lib/data";
 import { Compass, Eye, ShieldCheck, MessageSquare, ChevronDown, Sparkles, Scale, Briefcase } from "lucide-react";
@@ -11,6 +11,113 @@ import { GeometricLines } from "@/components/GeometricLines";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
+
+const PILLARS = [
+  {
+    icon: Compass,
+    title: "Nossa Missão",
+    subtitle: "Segurança Jurídica & Acolhimento",
+    text: "Prestar consultoria e defesa jurídica técnica, ética e acolhedora, garantindo que trabalhadores e famílias tenham seus direitos previdenciários reconhecidos com o maior valor de benefício possível.",
+  },
+  {
+    icon: Eye,
+    title: "Nossa Visão",
+    subtitle: "Excelência Previdenciária",
+    text: "Ser referência em advocacia previdenciária de alta performance em Curitiba e no Brasil, destacando-se pelo atendimento humanizado, cálculos precisos e soluções personalizadas para cada segurado.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Nossos Valores",
+    subtitle: "Compromissos Essenciais",
+    text: "Ética e Transparência • Escuta Atenta e Empatia • Rigor Técnico nos Cálculos • Atendimento Pessoal da Titular • Foco na Dignidade Humana.",
+  },
+];
+
+function PillarsCarousel() {
+  const [active, setActive] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const next = useCallback(() => {
+    setActive((prev) => (prev + 1) % PILLARS.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setActive((prev) => (prev - 1 + PILLARS.length) % PILLARS.length);
+  }, []);
+
+  const startAutoplay = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(next, 4000);
+  }, [next]);
+
+  useEffect(() => {
+    startAutoplay();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [startAutoplay]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0) next();
+      else prev();
+      startAutoplay();
+    }
+    touchStartX.current = null;
+  };
+
+  const pillar = PILLARS[active];
+  const Icon = pillar.icon;
+
+  return (
+    <div
+      className="relative select-none"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <div
+        key={active}
+        className="about-pillar-item flex flex-col items-start py-5 px-1 animate-fade-in-down will-change-transform"
+      >
+        <div className="flex items-center gap-2 mb-2">
+          <Icon className="w-5 h-5 text-[var(--accent)]" />
+          <span className="font-heading text-xl font-bold tracking-tight text-[var(--text-main)]">
+            {pillar.title}
+          </span>
+        </div>
+        <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+          {pillar.subtitle}
+        </h3>
+        <p className="font-body text-xs text-[var(--text-muted)] leading-relaxed">
+          {pillar.text}
+        </p>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 mt-3">
+        {PILLARS.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Slide ${i + 1}`}
+            onClick={() => { setActive(i); startAutoplay(); }}
+            className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              i === active
+                ? "bg-[#D5B1A0] scale-125"
+                : "bg-[var(--border-subtle)] opacity-60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function About() {
@@ -24,7 +131,6 @@ export function About() {
 
   useGSAP(
     () => {
-      // 1. Cabeçalho da Seção com animação bidirecional
       if (headerRef.current) {
         gsap.fromTo(
           headerRef.current,
@@ -43,7 +149,6 @@ export function About() {
         );
       }
 
-      // 2. Foto oficial da advogada
       if (photoCardRef.current) {
         gsap.fromTo(
           photoCardRef.current,
@@ -63,7 +168,6 @@ export function About() {
         );
       }
 
-      // 3. Coluna de texto e biografia em cascata bidirecional
       if (textContentRef.current) {
         const textElements = textContentRef.current.querySelectorAll(".about-text-anim");
         if (textElements.length > 0) {
@@ -86,7 +190,6 @@ export function About() {
         }
       }
 
-      // 4. Princípios (Missão, Visão e Valores) estilo Pilares Institucionais
       if (cardsRef.current) {
         const items = cardsRef.current.querySelectorAll(".about-pillar-item");
         if (items.length > 0) {
@@ -125,7 +228,6 @@ export function About() {
       ref={sectionRef}
       className="py-16 sm:py-24 bg-[var(--bg-primary)] editorial-border-b w-full relative overflow-hidden"
     >
-      {/* Linhas Geométricas Sutis de Fundo */}
       <GeometricLines variant="about" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -138,7 +240,7 @@ export function About() {
             <div className="flex items-center gap-3 mb-2">
               <span className="bullet-indicator text-[var(--accent)]" />
               <span className="font-heading uppercase text-xs tracking-widest text-[var(--accent)] font-bold">
-                01 / Perfil Profissional & Trajetória
+                01 / Perfil Profissional &amp; Trajetória
               </span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--text-main)] font-bold">
@@ -150,49 +252,30 @@ export function About() {
           </p>
         </div>
 
-        {/* Bloco Principal: Layout split-screen */}
+        {/* Bloco Principal */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 relative">
-          {/* Coluna de Conteúdo e Textos */}
+          {/* Coluna de Conteúdo */}
           <div ref={textContentRef} className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-start space-y-6">
             <div className="about-text-anim space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-xs font-heading font-semibold text-[var(--accent)]">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Advogada Especialista em Direito Previdenciário • Atendimento Presencial & Online</span>
+                <span>Advogada Especialista em Direito Previdenciário • Atendimento Presencial &amp; Online</span>
               </div>
               <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--text-main)] leading-tight">
                 Defesa Técnica e Acolhimento na Proteção dos seus Direitos
               </h3>
             </div>
 
-            {/* Citação de Proposta de Valor */}
             <div className="about-text-anim p-4 sm:p-5 rounded-2xl bg-[var(--bg-secondary)]/70 border border-[var(--border-subtle)]/30 border-l-4 border-l-[#D5B1A0] shadow-2xs">
               <p className="font-heading italic text-sm sm:text-base text-[var(--text-main)] leading-relaxed">
                 &ldquo;{OFFICE_INFO.slogan}&rdquo;
               </p>
             </div>
 
-            {/* Resumo da trajetória extraído de LAWYER_PROFILE — apenas 1º parágrafo visível por padrão */}
             <div className="about-text-anim space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
               <p>{LAWYER_PROFILE.bio[0]}</p>
             </div>
 
-            {/* Destaques Rápidos */}
-            <div className="about-text-anim grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-              <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-2xs">
-                <span className="font-heading text-xs font-bold text-[var(--accent)] block">Curitiba & Nacional</span>
-                <span className="text-[0.6875rem] text-[var(--text-muted)] font-body">Presencial & Digital</span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-2xs">
-                <span className="font-heading text-xs font-bold text-[var(--accent)] block">Especialidade</span>
-                <span className="text-[0.6875rem] text-[var(--text-muted)] font-body">Direito Previdenciário</span>
-              </div>
-              <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-2xs col-span-2 sm:col-span-1">
-                <span className="font-heading text-xs font-bold text-[var(--accent)] block">Atendimento Pessoal</span>
-                <span className="text-[0.6875rem] text-[var(--text-muted)] font-body">Com a Advogada Titular</span>
-              </div>
-            </div>
-
-            {/* Botões de Ação com Variação de Cores (Regra 9-D) e Contraste Dark Mode Perfeito */}
             <div className="about-text-anim flex flex-wrap items-center gap-3.5 pt-2">
               <button
                 type="button"
@@ -219,10 +302,8 @@ export function About() {
               </a>
             </div>
 
-            {/* CONTEÚDO COMPLETO CONDICIONAL */}
             {isExpanded && (
               <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)]/30 animate-fade-in-down">
-                {/* Parágrafos adicionais da bio (2º e 3º) */}
                 <div className="space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
                   <p>{LAWYER_PROFILE.bio[1]}</p>
                   <p>{LAWYER_PROFILE.bio[2]}</p>
@@ -231,7 +312,7 @@ export function About() {
                 <div className="p-5 sm:p-6 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/30 shadow-xs space-y-3">
                   <h4 className="font-heading text-base font-bold text-[var(--text-main)] flex items-center gap-2">
                     <Scale className="w-4 h-4 text-[var(--accent)]" />
-                    <span>Filosofia de Atuação & Compromisso Ético</span>
+                    <span>Filosofia de Atuação &amp; Compromisso Ético</span>
                   </h4>
                   <ul className="space-y-2 text-xs sm:text-sm text-[var(--text-muted)] font-body leading-relaxed">
                     {LAWYER_PROFILE.personalNotes.map((note, idx) => (
@@ -246,18 +327,15 @@ export function About() {
                 <div className="space-y-3">
                   <h4 className="font-heading text-base font-bold text-[var(--text-main)] flex items-center gap-2">
                     <Briefcase className="w-5 h-5 text-[var(--accent)]" />
-                    <span>Destaques Institucionais & Qualificações</span>
+                    <span>Destaques Institucionais &amp; Qualificações</span>
                   </h4>
-
                   <div className="grid sm:grid-cols-2 gap-3.5">
                     {LAWYER_PROFILE.careerHighlights.map((hl, idx) => (
                       <div
                         key={idx}
                         className="p-4 rounded-xl border border-[var(--border-subtle)]/30 bg-[var(--bg-card)] shadow-2xs flex flex-col justify-between"
                       >
-                        <p className="font-body text-xs text-[var(--text-main)] leading-relaxed">
-                          {hl}
-                        </p>
+                        <p className="font-body text-xs text-[var(--text-main)] leading-relaxed">{hl}</p>
                       </div>
                     ))}
                   </div>
@@ -266,11 +344,10 @@ export function About() {
             )}
           </div>
 
-          {/* Coluna da Foto Oficial */}
+          {/* Coluna da Foto */}
           <div className="lg:col-span-5 order-1 lg:order-2 w-full flex justify-center lg:justify-end">
             <div ref={photoCardRef} className="w-full max-w-[360px] sm:max-w-[400px] will-change-transform">
               <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#D5B1A0]/50 shadow-[0_12px_35px_rgba(18,19,22,0.25)] hover-lift group bg-[#121316]">
-                {/* Feixe de luz suave */}
                 <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 pointer-events-none" />
                 <Image
                   src="/Foto_perfil.jpg"
@@ -281,8 +358,6 @@ export function About() {
                   sizes="(max-width: 768px) 90vw, 420px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#121316]/95 via-[#121316]/30 to-transparent pointer-events-none" />
-
-                {/* Badge Inferior com Nome e Titularidade */}
                 <div className="absolute bottom-5 left-5 right-5 text-white z-10 pointer-events-none">
                   <span className="text-[0.6875rem] uppercase tracking-widest text-[#D5B1A0] font-heading font-bold block mb-1">
                     Advogada Titular
@@ -301,69 +376,50 @@ export function About() {
 
         {/* Bloco 2: Missão, Visão e Valores */}
         <div className="pt-8 border-t border-[var(--border-subtle)]/30">
-          <div className="relative flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-8 text-[var(--text-muted)]">
+          <div className="relative flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-6 text-[var(--text-muted)]">
             <div className="flex items-center gap-2.5">
               <Compass className="w-4 h-4 text-[var(--accent)]" />
               <span className="font-heading uppercase text-xs tracking-widest font-bold text-[var(--text-main)]">
-                Diretrizes & Princípios Norteadores
+                Diretrizes &amp; Princípios Norteadores
               </span>
             </div>
             <span className="font-heading text-xs tracking-wider text-[var(--text-muted)] hidden sm:inline">
-              Compromisso Ético & Foco em Resultados
+              Compromisso Ético &amp; Foco em Resultados
             </span>
           </div>
 
+          {/* Mobile: carrossel com swipe + autoplay */}
+          <div className="md:hidden">
+            <PillarsCarousel />
+          </div>
+
+          {/* Desktop: grid de 3 colunas */}
           <div
             ref={cardsRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--border-subtle)]/30"
+            className="hidden md:grid md:grid-cols-3 gap-8 divide-x divide-[var(--border-subtle)]/30"
           >
-            {/* 1. Nossa Missão */}
-            <div className="about-pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 first:pt-0 first:pl-0 will-change-transform">
-              <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-                <Compass className="w-5 h-5 text-[var(--accent)]" />
-                <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
-                  Nossa Missão
-                </span>
-              </div>
-              <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
-                Segurança Jurídica & Acolhimento
-              </h3>
-              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Prestar consultoria e defesa jurídica técnica, ética e acolhedora, garantindo que trabalhadores e famílias tenham seus direitos previdenciários reconhecidos com o maior valor de benefício possível.
-              </p>
-            </div>
-
-            {/* 2. Nossa Visão */}
-            <div className="about-pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 first:pt-0 will-change-transform">
-              <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-                <Eye className="w-5 h-5 text-[var(--accent)]" />
-                <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
-                  Nossa Visão
-                </span>
-              </div>
-              <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
-                Excelência Previdenciária
-              </h3>
-              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Ser referência em advocacia previdenciária de alta performance em Curitiba e no Brasil, destacando-se pelo atendimento humanizado, cálculos precisos e soluções personalizadas para cada segurado.
-              </p>
-            </div>
-
-            {/* 3. Nossos Valores */}
-            <div className="about-pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 first:pt-0 will-change-transform">
-              <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
-                <ShieldCheck className="w-5 h-5 text-[var(--accent)]" />
-                <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
-                  Nossos Valores
-                </span>
-              </div>
-              <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
-                Compromissos Essenciais
-              </h3>
-              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Ética e Transparência • Escuta Atenta e Empatia • Rigor Técnico nos Cálculos • Atendimento Pessoal da Titular • Foco na Dignidade Humana.
-              </p>
-            </div>
+            {PILLARS.map((pillar, i) => {
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={i}
+                  className="about-pillar-item flex flex-col items-start px-6 first:pl-0 will-change-transform"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon className="w-5 h-5 text-[var(--accent)]" />
+                    <span className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-main)]">
+                      {pillar.title}
+                    </span>
+                  </div>
+                  <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+                    {pillar.subtitle}
+                  </h3>
+                  <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+                    {pillar.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
