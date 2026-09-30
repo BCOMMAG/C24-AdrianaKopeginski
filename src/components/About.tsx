@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
@@ -257,7 +257,7 @@ export function About() {
           {/* Coluna de Conteúdo */}
           <div ref={textContentRef} className="lg:col-span-7 order-2 lg:order-1 flex flex-col justify-start space-y-6">
             <div className="about-text-anim space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-xs font-heading font-semibold text-[var(--accent)]">
+              <div className="hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] text-xs font-heading font-semibold text-[var(--accent)]">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Advogada Especialista em Direito Previdenciário • Atendimento Presencial &amp; Online</span>
               </div>
@@ -272,7 +272,7 @@ export function About() {
               </p>
             </div>
 
-            <div className="about-text-anim space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
+            <div className="hidden md:block about-text-anim space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
               <p>{LAWYER_PROFILE.bio[0]}</p>
             </div>
 
@@ -305,6 +305,7 @@ export function About() {
             {isExpanded && (
               <div className="space-y-6 pt-4 border-t border-[var(--border-subtle)]/30 animate-fade-in-down">
                 <div className="space-y-3 font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed font-normal">
+                  <p className="md:hidden">{LAWYER_PROFILE.bio[0]}</p>
                   <p>{LAWYER_PROFILE.bio[1]}</p>
                   <p>{LAWYER_PROFILE.bio[2]}</p>
                 </div>

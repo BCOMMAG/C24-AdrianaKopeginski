@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { WORK_STEPS, OFFICE_INFO } from "@/lib/data";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/SocialIcons";
@@ -136,8 +136,10 @@ export function HowWeWork() {
           </p>
         </div>
 
-        {/* Container com Trilha Conectora Progressiva */}
-        <div ref={trackRef} className="relative pt-6 pb-2">
+        {/* ========================================================================= */}
+        {/* MODELO DESKTOP (MD+): Trilha Conectora Progressiva com Scrub             */}
+        {/* ========================================================================= */}
+        <div ref={trackRef} className="hidden md:block relative pt-6 pb-2">
           {/* Linha guia de fundo */}
           <div className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-[var(--border-subtle)]/25 -z-10" />
 
@@ -147,7 +149,7 @@ export function HowWeWork() {
             className="hidden lg:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#D5B1A0]/20 via-[#D5B1A0] to-[#D5B1A0]/20 -z-10 will-change-transform"
           />
 
-          {/* 4 Passos Estruturados */}
+          {/* 4 Passos Estruturados em Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {WORK_STEPS.map((step, idx) => (
               <div
@@ -183,6 +185,11 @@ export function HowWeWork() {
           </div>
         </div>
 
+        {/* ========================================================================= */}
+        {/* MODELO MOBILE: Interativo por Etapas + Design Editorial Aberto (Sem Cards) */}
+        {/* ========================================================================= */}
+        <MobileHowWeWork />
+
         {/* CTA com Verde WhatsApp Oficial e Design Imponente */}
         <div ref={ctaRef} className="mt-12 sm:mt-16 text-center will-change-transform">
           <a
@@ -198,5 +205,167 @@ export function HowWeWork() {
         </div>
       </div>
     </section>
+  );
+}
+
+function MobileHowWeWork() {
+  const [activeStep, setActiveStep] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const stepLabels = [
+    { num: "01", label: "Escuta" },
+    { num: "02", label: "Auditoria" },
+    { num: "03", label: "Estratégia" },
+    { num: "04", label: "Concessão" },
+  ];
+
+  const currentStep = WORK_STEPS[activeStep];
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0) {
+        setActiveStep((prev) => (prev + 1) % WORK_STEPS.length);
+      } else {
+        setActiveStep((prev) => (prev - 1 + WORK_STEPS.length) % WORK_STEPS.length);
+      }
+    }
+    touchStartX.current = null;
+  };
+
+  return (
+    <div className="md:hidden">
+      {/* Seletor de Etapas Interativo (4 passos) */}
+      <div className="grid grid-cols-4 gap-1.5 mb-3">
+        {stepLabels.map((item, idx) => {
+          const isActive = idx === activeStep;
+          const isPassed = idx < activeStep;
+          return (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setActiveStep(idx)}
+              className={`py-2 px-1 rounded-xl text-center transition-all duration-300 cursor-pointer flex flex-col items-center justify-center border ${
+                isActive
+                  ? "bg-[#D5B1A0] text-[#18191C] border-[#D5B1A0] shadow-xs"
+                  : isPassed
+                  ? "bg-[var(--bg-secondary)]/60 text-[var(--text-main)] border-[var(--border-subtle)]"
+                  : "bg-[var(--bg-card)] text-[var(--text-muted)] border-[var(--border-subtle)]/40 hover:border-[#D5B1A0]/40"
+              }`}
+            >
+              <span
+                className={`font-heading text-xs font-bold block ${
+                  isActive ? "text-[#18191C]" : isPassed ? "text-[var(--accent)]" : "text-[var(--text-muted)]"
+                }`}
+              >
+                {item.num}
+              </span>
+              <span className="text-[0.625rem] font-heading font-semibold truncate max-w-full">
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Linha de Progresso Conectora */}
+      <div className="w-full bg-[var(--border-subtle)]/30 h-1 rounded-full mb-6 overflow-hidden">
+        <div
+          className="bg-[#D5B1A0] h-full transition-all duration-500 rounded-full"
+          style={{ width: `${((activeStep + 1) / WORK_STEPS.length) * 100}%` }}
+        />
+      </div>
+
+      {/* Conteúdo Aberto da Etapa (Estilo Editorial - Sem Card) */}
+      <div
+        className="relative select-none"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        <div
+          key={activeStep}
+          className="flex flex-col items-start py-2 px-1 animate-fade-in-down will-change-transform"
+        >
+          {/* Número e Título */}
+          <div className="flex items-center gap-2 mb-2 text-[var(--accent)]">
+            <span className="font-heading text-2xl font-bold tracking-tight text-[var(--accent)]">
+              {currentStep.number}.
+            </span>
+            <span className="font-heading text-xl font-bold tracking-tight text-[var(--text-main)] leading-snug">
+              {currentStep.title}
+            </span>
+          </div>
+
+          {/* Subtítulo */}
+          <h3 className="font-heading text-sm font-semibold text-[var(--accent)] mb-2 leading-snug">
+            {currentStep.subtitle}
+          </h3>
+
+          {/* Descrição Detalhada */}
+          <p className="font-body text-xs text-[var(--text-muted)] leading-relaxed mb-6">
+            {currentStep.description}
+          </p>
+
+          {/* Barra de Navegação Rápida entre Etapas */}
+          <div className="w-full flex items-center justify-between pt-4 border-t border-[var(--border-subtle)]/25 gap-3">
+            <button
+              type="button"
+              onClick={() => setActiveStep((prev) => Math.max(0, prev - 1))}
+              disabled={activeStep === 0}
+              className={`text-xs font-heading font-semibold py-2 px-3 rounded-lg transition-all ${
+                activeStep === 0
+                  ? "opacity-30 cursor-not-allowed text-[var(--text-muted)]"
+                  : "text-[var(--text-main)] hover:text-[var(--accent)] cursor-pointer"
+              }`}
+            >
+              ← Anterior
+            </button>
+
+            {/* Dots */}
+            <div className="flex items-center gap-1.5">
+              {WORK_STEPS.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  aria-label={`Etapa ${i + 1}`}
+                  onClick={() => setActiveStep(i)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    i === activeStep
+                      ? "bg-[#D5B1A0] scale-125"
+                      : "bg-[var(--border-subtle)] opacity-60"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {activeStep < WORK_STEPS.length - 1 ? (
+              <button
+                type="button"
+                onClick={() => setActiveStep((prev) => Math.min(WORK_STEPS.length - 1, prev + 1))}
+                className="text-xs font-heading font-bold py-2 px-3 rounded-lg bg-[var(--bg-secondary)] text-[var(--text-main)] hover:bg-[#D5B1A0] hover:text-[#18191C] transition-all cursor-pointer flex items-center gap-1"
+              >
+                <span>Próximo</span>
+                <span>→</span>
+              </button>
+            ) : (
+              <a
+                href={OFFICE_INFO.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-heading font-bold py-2 px-3 rounded-lg bg-[#D5B1A0] text-[#292323] transition-all cursor-pointer flex items-center gap-1 shadow-2xs"
+              >
+                <span>Concluir</span>
+                <span>→</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -133,7 +133,7 @@ export function PracticeAreas() {
               Áreas de Atuação
             </h2>
           </div>
-          <p className="font-body text-sm sm:text-base text-[var(--text-muted)] max-w-xl leading-relaxed">
+          <p className="hidden md:block font-body text-sm sm:text-base text-[var(--text-muted)] max-w-xl leading-relaxed">
             Atuação técnica especializada em Direito Previdenciário com foco em aposentadorias, benefícios por incapacidade, BPC/LOAS e planejamento em Curitiba/PR e em todo o Brasil.
           </p>
         </div>
